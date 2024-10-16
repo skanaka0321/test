@@ -1,5 +1,0 @@
-apiVersion: v2
-type: application
-name: kyverno
-version: v0.0.0
-kubeVersion: v1.25.0
