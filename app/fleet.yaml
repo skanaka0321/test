@@ -4,3 +4,4 @@ helm:
   repo: https://kyverno.github.io/kyverno/
   chart: kyverno
   version: 3.2.6
+  KubeVersion: 1.25.0
