@@ -7,7 +7,7 @@ spec:
     matchLabels:
       app: hello
       tier: app
-  replicas: 4
+  replicas: 2
   template:
     metadata:
       labels:
