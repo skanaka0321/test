@@ -15,7 +15,7 @@ spec:
       labels:
         app: nginx-cream
       annotations:
-        checksum/config: {{ include (print $.Template.BasePath "/configmap.yaml") . | sha256sum }}
+        checksum/config: {{ include "nginx-cream.configmapData" . | sha256sum }}
     spec:
       containers:
       - name: nginx
