@@ -1,0 +1,5 @@
+defaultNamespace: nginx-cream
+helm:
+  releaseName: nginx-cream
+  values:
+    appVersion: "1.21.6"

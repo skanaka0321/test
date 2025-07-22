@@ -1,0 +1,4 @@
+apiVersion: v2
+name: nginx-cream
+version: 0.1.0
+description: A minimal nginx deployment for Fleet test
