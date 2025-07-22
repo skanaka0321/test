@@ -14,7 +14,7 @@ data:
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: nginx-cream-config
+  name: nginx-cream-config-{{ .Values.appVersion }}
   namespace: nginx-cream
   annotations:
     checksum/config: {{ include "nginx-cream.configmapData" . | sha256sum }}
