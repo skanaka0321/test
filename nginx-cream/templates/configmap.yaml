@@ -2,7 +2,7 @@
 data:
   example.conf: |
     server {
-      listen 80;
+      listen 8080;
       server_name localhost;
       location / {
         root /usr/share/nginx/html;
