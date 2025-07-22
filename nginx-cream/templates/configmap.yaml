@@ -1,10 +1,4 @@
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: nginx-cream-config
-  namespace: nginx-cream
-  annotations:
-    checksum/config: {{ include (print $.Template.BasePath "/configmap.yaml") . | sha256sum }}
+{{- define "nginx-cream.configmapData" }}
 data:
   example.conf: |
     server {
@@ -15,3 +9,13 @@ data:
         index index.html index.htm;
       }
     }
+{{- end }}
+
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: nginx-cream-config
+  namespace: nginx-cream
+  annotations:
+    checksum/config: {{ include "nginx-cream.configmapData" . | sha256sum }}
+{{ include "nginx-cream.configmapData" . }}
