@@ -9,11 +9,11 @@ spec:
   replicas: 1
   selector:
     matchLabels:
-      app: nginx-cream
+      app: nginx-cream-config-{{ .Values.appVersion }}  
   template:
     metadata:
       labels:
-        app: nginx-cream-config-{{ .Values.appVersion }}
+        app: nginx-cream-config-{{ .Values.appVersion }}  
       annotations:
         checksum/config: {{ include "nginx-cream.configmapData" . | sha256sum }}
     spec:
@@ -23,19 +23,19 @@ spec:
         ports:
         - containerPort: 80
         env:
-            - name: app-image-version
-              value: "nginx-cream-config-{{ .Values.appVersion }}"
-            - name: app-image-version
-              value: "nginx-cream-config-{{ .Values.appVersion }}"  
-            - name: app-name  # Intentional duplicate key
-              value: "nginx-env-duplicate"
-            - name: app-name
-              value: phmcy-nextgen-experience-api  
+          - name: app-image-version
+            value: "nginx-cream-config-{{ .Values.appVersion }}"
+          - name: app-image-version 
+            value: "nginx-cream-config-{{ .Values.appVersion }}"
+          - name: app-name
+            value: "nginx-env-duplicate"
+          - name: app-name
+            value: "phmcy-nextgen-experience-api"
         volumeMounts:
         - name: config-volume
           mountPath: /etc/nginx/conf.d/default.conf
           subPath: example.conf
       volumes:
-      - name: config-volume
-        configMap:
-          name: nginx-cream-config-{{ .Values.appVersion }}
+        - name: config-volume
+          configMap:
+            name: nginx-cream-config-{{ .Values.appVersion }}
