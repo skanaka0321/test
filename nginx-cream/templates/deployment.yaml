@@ -9,11 +9,11 @@ spec:
   replicas: 1
   selector:
     matchLabels:
-      app: nginx-cream-config-{{ .Values.appVersion }}  
+      app: nginx-cream-config
   template:
     metadata:
       labels:
-        app: nginx-cream-config-{{ .Values.appVersion }}  
+        app: nginx-cream-config
       annotations:
         checksum/config: {{ include "nginx-cream.configmapData" . | sha256sum }}
     spec:
