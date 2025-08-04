@@ -1,0 +1,8 @@
+namespace: nodejs-demo-app
+
+helm:
+  releaseName: nodejs-demo-app
+  chart: "."
+  values:
+    service:
+      type: NodePort
